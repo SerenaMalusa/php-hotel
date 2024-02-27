@@ -14,7 +14,13 @@ if ($user_parking) {
 
 } ;
 
-// var_dump ($filterd_hotels);
+$user_vote = $_GET['vote'];
+
+if ($user_vote) {
+    
+    $filterd_hotels = array_filter($filterd_hotels, fn($hotel) => $hotel['vote'] >= $user_vote);
+
+};
 
 ?>
 
@@ -44,13 +50,21 @@ if ($user_parking) {
 <div class="container">
 
     <form class="card mt-5 p-4" method="GET">
-        <div class="form-check px-4">
+        <select class="form-select col-4" name="vote">
+            <option selected>Filter for vote</option>
+            <option value="1">1 stella</option>
+            <option value="2">2 stelle</option>
+            <option value="3">3 stelle</option>
+            <option value="4">4 stelle</option>
+            <option value="5">5 stelle</option>
+        </select>
+        <div class="form-check px-4 my-3">
             <input class="form-check-input" type="checkbox" id="parking" name="parking">
             <label class="form-check-label" for="parking">
                 Do you need parking?
             </label>
-            <button type="submit" class="btn btn-primary">Submit</button>
         </div>
+        <button type="submit" class="btn btn-primary col-2">Submit</button>
     </form>
 
     <div class="card mt-5">
