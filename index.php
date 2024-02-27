@@ -31,15 +31,22 @@
 
     <form class="card mt-5 p-4" method="GET">
         <select class="form-select col-4" name="vote">
-            <option selected value="1">Filter for vote</option>
-            <option value="1">1 stella</option>
-            <option value="2">2 stelle</option>
+            <option selected value="0">Filter for vote</option>
+            <?php for($i = 1; $i <= 5; $i++): ?>
+                <option 
+                value="<?= $i ?>" 
+                <?= $i == $user_vote ? 'selected' : '' ?>
+                >
+                    <?= $i ?> stelle
+                </option>
+            <?php endfor; ?>
+            <!-- <option value="2">2 stelle</option>
             <option value="3">3 stelle</option>
             <option value="4">4 stelle</option>
-            <option value="5">5 stelle</option>
+            <option value="5">5 stelle</option> -->
         </select>
         <div class="form-check px-4 my-3">
-            <input class="form-check-input" type="checkbox" id="parking" name="parking">
+            <input class="form-check-input" type="checkbox" id="parking" name="parking" <?= $user_parking ? 'checked' : '' ?>>
             <label class="form-check-label" for="parking">
                 Do you need parking?
             </label>
