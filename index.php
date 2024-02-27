@@ -1,6 +1,6 @@
 <?php 
 
-include_once __DIR__ ."./data/init.php";
+require_once __DIR__ ."./data/init.php";
 
 // var_dump($hotels);
 
@@ -29,28 +29,40 @@ include_once __DIR__ ."./data/init.php";
 </head>
 <body>
 
-    <table class="table table-striped">
-        <thead>
-            <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Description</th>
-            <th scope="col">Parking</th>
-            <th scope="col">Vote</th>
-            <th scope="col">Distance from City center</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($hotels as $hotel): ?>
-            <tr>
-            <td><?= $hotel['name'] ?></td>
-            <td><?= $hotel['description'] ?></td>
-            <td><?= $hotel['parking'] ?></td>
-            <td><?= $hotel['vote'] ?></td>
-            <td><?= $hotel['distance_to_center'] ?></td>
-            </tr>
-            <? endforeach; ?>
-        </tbody>
-    </table>
+<div class="container">
+
+    <div class="card mt-5">
+        <div class="card-body">
+    
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Parking</th>
+                    <th scope="col">Vote</th>
+                    <th scope="col">Distance from City center</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($hotels as $hotel): ?>
+                    <tr>
+                    <td><?= $hotel['name'] ?></td>
+                    <td><?= $hotel['description'] ?></td>
+                    <td><?= $hotel['parking'] ?></td>
+                    <td><?= $hotel['vote'] ?></td>
+                    <td><?= $hotel['distance_to_center'] ?></td>
+                    </tr>
+                    <? endforeach; ?>
+                </tbody>
+            </table>
+            
+        </div>
+    </div>
+
+</div>
+
+
     
 </body>
 </html>
