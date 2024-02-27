@@ -37,7 +37,7 @@
                 value="<?= $i ?>" 
                 <?= $i == $user_vote ? 'selected' : '' ?>
                 >
-                    <?= $i ?> stelle
+                    <?= $i ?> <?= $i == 1 ? 'stella':'stelle' ?>
                 </option>
             <?php endfor; ?>
             <!-- <option value="2">2 stelle</option>
