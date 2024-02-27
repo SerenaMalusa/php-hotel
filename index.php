@@ -1,26 +1,6 @@
 <?php 
 
-require_once __DIR__ ."./data/init.php";
-
-$filterd_hotels = $hotels;
-
-$user_parking = isset($_GET["parking"]) ? true : false;
-
-if ($user_parking) {
-    
-    $filterd_hotels = array_filter($filterd_hotels, function($hotel, $key) {
-        return $hotel['parking'] == true;
-    }, ARRAY_FILTER_USE_BOTH);
-
-} ;
-
-$user_vote = $_GET['vote'];
-
-if ($user_vote) {
-    
-    $filterd_hotels = array_filter($filterd_hotels, fn($hotel) => $hotel['vote'] >= $user_vote);
-
-};
+    require_once __DIR__ ."./logic.php";
 
 ?>
 
@@ -51,7 +31,7 @@ if ($user_vote) {
 
     <form class="card mt-5 p-4" method="GET">
         <select class="form-select col-4" name="vote">
-            <option selected>Filter for vote</option>
+            <option selected value="1">Filter for vote</option>
             <option value="1">1 stella</option>
             <option value="2">2 stelle</option>
             <option value="3">3 stelle</option>
