@@ -2,7 +2,9 @@
 
 require_once __DIR__ ."./data/init.php";
 
-// var_dump($hotels);
+$filterd_hotels = [];
+
+var_dump($_GET);
 
 ?>
 
@@ -30,6 +32,16 @@ require_once __DIR__ ."./data/init.php";
 <body>
 
 <div class="container">
+
+    <form class="card mt-5 p-4" method="GET">
+        <div class="form-check px-4">
+            <input class="form-check-input" type="checkbox" id="parking" name="parking">
+            <label class="form-check-label" for="parking">
+                Do you need parking?
+            </label>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
 
     <div class="card mt-5">
         <div class="card-body">
